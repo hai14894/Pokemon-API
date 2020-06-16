@@ -10,5 +10,7 @@ async function getPokemon(name){
 
 const searchBtn = document.querySelector("#search-btn")
 const searchBar = document.querySelector("#search-bar")
-getPokemon("pikachu")
 
+const pokeImg = document.querySelector("#poke-img")
+const pokeName = document.querySelector("#poke-name")
+const pokeHp = document.querySelector("#poke-hp")

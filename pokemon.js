@@ -14,3 +14,12 @@ const searchBar = document.querySelector("#search-bar")
 const pokeImg = document.querySelector("#poke-img")
 const pokeName = document.querySelector("#poke-name")
 const pokeHp = document.querySelector("#poke-hp")
+
+searchBtn.addEventListener(
+    "click",
+    async() => {
+        const pokemon = await getPokemon(searchBar.value)
+        pokeImg.src = pokemon.sprites.front_default
+        pokeName.innerHTML = pokemon.name
+        pokeHp.innerHTML = pokemon.stats[0].base_stat
+    })

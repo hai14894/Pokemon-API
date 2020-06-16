@@ -22,4 +22,6 @@ searchBtn.addEventListener(
         pokeImg.src = pokemon.sprites.front_default
         pokeName.innerHTML = pokemon.name
         pokeHp.innerHTML = pokemon.stats[0].base_stat
+
+        searchBar.value = ""
     })

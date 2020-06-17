@@ -29,9 +29,9 @@ searchBtn.addEventListener(
     "click",
     async() => {
         event.preventDefault();
-        const pokemon = await getPokemon(searchBar.value)
+        const pokemon = await getPokemon(searchBar.value.toLowerCase())
         pokeImg.src = pokemon.sprites.front_default
-        pokeName.innerHTML = pokemon.name
+        pokeName.innerHTML = pokemon.name.toUpperCase()
         pokeType.innerHTML = pokemon.types[0].type.name
         pokeHp.innerHTML = pokemon.stats[0].base_stat
         pokeAttack.innerHTML = pokemon.stats[1].base_stat

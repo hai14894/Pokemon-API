@@ -28,7 +28,7 @@ const pokeSkill2 = document.querySelector("#poke-skill2")
 searchBtn.addEventListener(
     "click",
     async() => {
-        
+        event.preventDefault();
         const pokemon = await getPokemon(searchBar.value)
         pokeImg.src = pokemon.sprites.front_default
         pokeName.innerHTML = pokemon.name

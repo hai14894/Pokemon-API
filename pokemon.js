@@ -25,3 +25,9 @@ searchBtn.addEventListener(
 
         searchBar.value = ""
     })
+async function getPokemon1(name){
+    const respond = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`);
+    console.log(respond);
+    
+}
+getPokemon1("pikachu")

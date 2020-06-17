@@ -40,8 +40,8 @@ searchBtn.addEventListener(
         pokeSDefense.innerHTML = pokemon.stats[4].base_stat
         pokeSpeed.innerHTML = pokemon.stats[5].base_stat
         pokeWeight.innerHTML = pokemon.weight
-        pokeSkill1.innerHTML = pokemon.abilities[0].ability.name
-        pokeSkill2.innerHTML = pokemon.abilities[1].ability.name
+        pokeSkill1.innerHTML = pokemon.abilities[0].ability.name.toUpperCase()
+        pokeSkill2.innerHTML = pokemon.abilities[1].ability.name.toUpperCase()
 
 
 

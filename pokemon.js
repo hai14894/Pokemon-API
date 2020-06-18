@@ -1,3 +1,5 @@
+const errorMessage = document.querySelector("#error-message")
+
 async function getPokemon(name){
     try{
         const respond = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
@@ -5,8 +7,10 @@ async function getPokemon(name){
     }catch(e) {
         e = "The pokemon you are looking for does not exist"
         console.log(e);
+        errorMessage.innerHTML = "The pokemon you are looking for does not exist"
     }
 }   
+
 
 const searchBtn = document.querySelector("#search-btn")
 const searchBar = document.querySelector("#search-bar")
@@ -24,12 +28,8 @@ const pokeSpeed = document.querySelector("#poke-speed")
 const pokeSkill1 = document.querySelector("#poke-skill1")
 const pokeSkill2 = document.querySelector("#poke-skill2")
 
-
-searchBtn.addEventListener(
-    "click",
-    async() => {
-        event.preventDefault();
-        const pokemon = await getPokemon(searchBar.value.toLowerCase())
+async function getAndDisplayPokemon(name){
+    const pokemon = await getPokemon(name.toLowerCase())
         pokeImg.src = pokemon.sprites.front_default
         pokeName.innerHTML = pokemon.name.toUpperCase()
         pokeType.innerHTML = pokemon.types[0].type.name
@@ -42,14 +42,16 @@ searchBtn.addEventListener(
         pokeWeight.innerHTML = pokemon.weight
         pokeSkill1.innerHTML = pokemon.abilities[0].ability.name.toUpperCase()
         pokeSkill2.innerHTML = pokemon.abilities[1].ability.name.toUpperCase()
+}
+searchBtn.addEventListener(
+    "click",
+    async() => {
+        event.preventDefault();
+        getAndDisplayPokemon(searchBar.value)
 
 
 
         searchBar.value = ""
+        errorMessage.innerHTML= ""
     })
-async function getPokemon1(name){
-    const respond = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`);
-    console.log(respond);
-    
-}
-getPokemon1("pikachu")
+getAndDisplayPokemon("pikachu")

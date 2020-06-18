@@ -10,17 +10,25 @@
     <style>
         body{
             font-family: 'VT323', monospace;
-            background-image: url('Pokemon-API/asset/BACKGROUND-IMG.png');
+            /*   */
+        }
+        #background-img{
+            position:absolute;
+            z-index: -1;
         }
     </style>
 </head>
 <body>
+    <img src="./asset/BACKGROUND-IMG.png" width="100%" id="background-img" alt="">
     <nav class="navbar navbar-light bg-light d-flex justify-content-center">
         <form class="form-inline">
             <input class="form-control mr-sm-2" placeholder="Search for pokemon" type="text" id="search-bar" />
             <button id="search-btn" class="btn btn-outline-success my-2 my-sm-0">Search</button>
         </form>
     </nav>
+    <p id="error-message" class= "d-flex justify-content-center">
+
+    </p>
     <div class="d-flex justify-content-center">
 
         <ul>
